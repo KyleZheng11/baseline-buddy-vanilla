@@ -48,7 +48,7 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     padding: 20px;
     row-gap: 10px;
     column-gap: 10px;
