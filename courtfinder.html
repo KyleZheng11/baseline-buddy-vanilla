@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="courtfinder.css"/>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo4BxkPR6eBLJrwQmHPvNfKSX4HhDqHYw&libraries=places"></script>
+    <script src="courtfinder.js"></script>
+    <title>BaselineBuddy</title>
+</head>
+<body>
+
+    <!-- Start Code Here -->
+    <div class="homepage">
+        <h1><a href="index.html">BaselineBuddy</a></h1>
+    
+        <nav class="navbar">
+            <ul>
+                <li><a href="signup.html">Login/Sign Up</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+     
+        <main>
+            <!-- google maps api key -->
+            <!-- AIzaSyBo4BxkPR6eBLJrwQmHPvNfKSX4HhDqHYw -->
+            <div class="search-container">
+                <input type="text" id="location-input" placeholder="Enter a location (e.g., Pittsburgh, PA)">
+            </div>
+
+            <div id="map"></div>
+
+        </main>
+
+    </div>
+    
+</body>
+</html>
