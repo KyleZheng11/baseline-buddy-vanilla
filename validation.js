@@ -7,7 +7,6 @@ const error_message = document.getElementById('error-message')
 
 form.addEventListener('submit', (e) => {
     // e.preventDefault() // Prevent Submit
-
     let errors = []
 
     if(firstname_input) {
@@ -22,6 +21,18 @@ form.addEventListener('submit', (e) => {
     if(errors.length > 0) {
         e.preventDefault()
         error_message.innerText = errors.join(". ")
+    }
+    else { //if no errors, store user data in localStorage
+        let userObject = {firstname: firstname_input.value, email: email_input.value, password: password_input.value};
+        localStorage.setItem("user", JSON.stringify(userObject));
+        
+        // let storedUser = JSON.parse(localStorage.getItem("user"));
+        // console.log(storedUser);
+
+        // localStorage.setItem("name", "bob");
+        // localStorage.getItem("name");
+        // localStorage.removeItem("name");
+        // localStorage.clear();
     }
 })
 
