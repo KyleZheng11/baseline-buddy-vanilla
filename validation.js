@@ -23,14 +23,38 @@ form.addEventListener('submit', (e) => {
         error_message.innerText = errors.join(". ")
     }
     else { //if no errors, store user data in localStorage
-        let userObject = {
-            username: username_input.value, 
-            email: email_input.value, 
-            password: password_input.value
+        const email = email_input.value
+        if (username_input) { //signing up
+            if(localStorage.getItem(email)) {
+                e.preventDefault()
+                error_message.innerText = 'Email is already tied to an account'
+                return
+            }
+
+            let userObject = {
+                username: username_input.value, 
+                email: email_input.value, 
+                password: password_input.value
+            }
+            let jsonUser = JSON.stringify(userObject)
+            localStorage.setItem(email, jsonUser)
+            console.log('user added');
+            updatePageWithUsername(username_input.value)
         }
-        let jsonUser = JSON.stringify(userObject)
-        localStorage.setItem(userObject, jsonUser)
-        console.log('user added');
+        else { //logging in
+            const storedUser = localStorage.getItem(email)
+            const user = JSON.parse(storedUser)
+            if (user.email !== email_input.value && user.password !== password_input.value) {
+                //invalid login
+                e.preventDefault()
+                error_message.innerText = 'Login Failed, incorrect email/password'
+                return
+            }
+            else {
+                console.log('successfully logged in!')
+                updatePageWithUsername(username_input.value)
+            }
+        }
     }
 })
 
@@ -86,3 +110,10 @@ allInputs.forEach(input => {
         }
     })
 })
+
+function updatePageWithUsername(username) {
+    const navbar = document.getElementById('displayUserName')
+    if (navbar) {
+        navbar.textContent = username
+    }
+}

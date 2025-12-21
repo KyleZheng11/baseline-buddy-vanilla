@@ -137,10 +137,25 @@ main button:focus{
 
 #match-history div .match {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 150px;
     height: 150px;
-    grid-template-columns: 1fr 1fr;
     border-radius: 50%;
     border: 2px solid blue; 
     background-color: rgb(153, 106, 49);
+    
+}
+
+.match {
+    margin: 10px;
+}
+
+.match input {
+    background-color: white;
+    width: 200px;
+    height: 20px;
+}
+
+#notes {
+    height: 100px;
 }
