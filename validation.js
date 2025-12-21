@@ -1,5 +1,5 @@
 const form = document.getElementById('form')
-const firstname_input = document.getElementById('firstname-input')
+const username_input = document.getElementById('username-input')
 const email_input = document.getElementById('email-input')
 const password_input = document.getElementById('password-input')
 const repeat_password_input = document.getElementById('repeat-password-input')
@@ -9,9 +9,9 @@ form.addEventListener('submit', (e) => {
     // e.preventDefault() // Prevent Submit
     let errors = []
 
-    if(firstname_input) {
+    if(username_input) {
         //we are in signup
-        errors = getSignupFormErrors(firstname_input.value, email_input.value, password_input.value, repeat_password_input.value)
+        errors = getSignupFormErrors(username_input.value, email_input.value, password_input.value, repeat_password_input.value)
     }
     else{
         //login page
@@ -23,25 +23,23 @@ form.addEventListener('submit', (e) => {
         error_message.innerText = errors.join(". ")
     }
     else { //if no errors, store user data in localStorage
-        let userObject = {firstname: firstname_input.value, email: email_input.value, password: password_input.value};
-        localStorage.setItem("user", JSON.stringify(userObject));
-        
-        // let storedUser = JSON.parse(localStorage.getItem("user"));
-        // console.log(storedUser);
-
-        // localStorage.setItem("name", "bob");
-        // localStorage.getItem("name");
-        // localStorage.removeItem("name");
-        // localStorage.clear();
+        let userObject = {
+            username: username_input.value, 
+            email: email_input.value, 
+            password: password_input.value
+        }
+        let jsonUser = JSON.stringify(userObject)
+        localStorage.setItem(userObject, jsonUser)
+        console.log('user added');
     }
 })
 
-function getSignupFormErrors(firstname, email, password, repeatPassword) {
+function getSignupFormErrors(username, email, password, repeatPassword) {
     let errors = []
     
-    if(firstname === '' || firstname == null) {
-        errors.push('Firstname is required')
-        firstname_input.parentElement.classList.add('incorrect') //adds class incorrect css
+    if(username === '' || username == null) {
+        errors.push('username is required')
+        username_input.parentElement.classList.add('incorrect') //adds class incorrect css
     }
     if(email === '' || email == null) {
         errors.push('Email is required')
@@ -78,7 +76,7 @@ function getLoginFormErrors(email, password) {
     return errors;
 }
 
-const allInputs = [firstname_input, email_input, password_input, repeat_password_input].filter(input => input != null)
+const allInputs = [username_input, email_input, password_input, repeat_password_input].filter(input => input != null)
 
 allInputs.forEach(input => {
     input.addEventListener('input', () => {

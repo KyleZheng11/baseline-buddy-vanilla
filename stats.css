@@ -5,7 +5,11 @@ body {
 
 main{
     margin: 20px;
-    background-color: rgb(126, 196, 126);
+    /* background-color: rgb(126, 196, 126); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
@@ -43,34 +47,6 @@ h1 {
 
 .navbar li{
     float: right;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 20px;
-    row-gap: 10px;
-    column-gap: 10px;
-    height: calc(100vh - 200px);
-}
-
-.container a {
-    color: white;
-    font-size: 2rem;
-    text-decoration: none;
-}
-
-.container a:hover{
-    color: greenyellow;
-}
-
-.container div {
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
-    background-color: rgb(25, 137, 189);
-    border: 2px solid rgb(255, 255, 255);
-    text-align: center;
 }
 
 .tennisball-container {
@@ -129,11 +105,42 @@ h1 {
     }
 }
 
-/* .shadow {
-    position: absolute;
-    width: 50px;
-    height: 20px;
-    transform: translate(-30%, 170%);
-    background: rgba(0, 0, 0, 0.2);
+main button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 1000px;
+    padding: .85em 4em;
+    background-color: rgb(126, 196, 126);
+    color: black;
+    font: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+main button:hover{
+    background-color: rgb(19, 116, 19);
+}
+main button:focus{
+    outline: none;
+    background-color: rgb(19, 116, 19);
+}
+
+#match-history {
+    width: 90vw;
+    height: 90vh;
+    margin-top: 10px;
+    background-color: rgb(126, 196, 126);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#match-history div .match {
+    display: grid;
+    width: 150px;
+    height: 150px;
+    grid-template-columns: 1fr 1fr;
     border-radius: 50%;
-} */
+    border: 2px solid blue; 
+    background-color: rgb(153, 106, 49);
+}

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="stats.css"/>
+    <script type="text/javascript" src="stats.js" defer></script>
     <title>BaselineBuddy</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
         <!-- <div class="shadow"></div> -->
     </div>
     <div class="homepage">
-        <h1><a href="index.html">BaselineBuddy</a></h1>
+        <h1><a href="index.html">BaselineBuddy Stats</a></h1>
     
         <nav class="navbar">
             <ul>
@@ -25,11 +26,12 @@
         </nav>
      
         <main>
-            <div class="container">
-                <div><a href="courtfinder.html">Court Finder</a></div>
-                <div><a href="">Analyze Your Match</a></div>
-                <div><a href="stats.html">Stats/Previous Matches</a></div>
-                <div><a href="">Forums</a></div>
+            <form id="form">
+                <button type="submit">Add Match</button>
+            </form>
+
+            <div id="match-history">
+
             </div>
             
         </main>
